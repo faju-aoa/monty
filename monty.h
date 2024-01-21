@@ -64,6 +64,9 @@ extern global_t var_glo;
 /* opcode_instructuions*/
 void push(stack_t **stack, unsigned int line_number);
 
+/* doubly linked list functions */
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+
 /* main */
 void free_vglo(void);
 
