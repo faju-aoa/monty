@@ -37,3 +37,23 @@ void push(stack_t **doubly, unsigned int data)
 	else
 		creat_node_list(doubly, n);
 }
+/**
+ * pall - prints all values on the stack
+ *
+ * @head: head of the linked list
+ * @data: line numbers
+ * Return: no return
+ */
+void pall(stack_t **head, unsigned int data)
+{
+	stack_t *ptr
+	(void)data;
+
+	ptr = *head;
+
+	while (head)
+	{
+		printf("%d\n", ptr->n);
+		ptr = ptr->next;
+	}
+}
