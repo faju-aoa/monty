@@ -1,0 +1,38 @@
+#include "monty.h"
+
+/**
+ *creat_node_list - add a note at the end of the doubly link list
+ *@head: first position of linked list
+ *@n: data to store
+ *Return: a doubly linked list
+ */
+stack_t *creat_node_list(stack_t **head, const int n)
+{
+	stack_t *temp, *ptr;
+
+	if (head == NULL)
+		return (NULL);
+	temp = malloc(sizeof(stack_t));
+	if (!temp)
+	{
+		dprintf(2, "Error: malloc failed\n");
+		free_all();
+		exit(EXIT_FAILURE);
+	}
+	temp->n = n;
+	/*Careful with the first time*/
+	if (*head == NULL)
+	{
+		temp->next = *head;
+		temp->prev = NULL;
+		*head = temp;
+		return (*head);
+	}
+	ptr = *head;
+	while (ptr->next)
+		ptr = ptr->next;
+	temp->next = ptr->next;
+	temp->prev = ptr;
+	ptr->next = temp;
+	return (ptr->next);
+}
